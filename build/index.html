@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/main.min.css">
     <script src="assets/js/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+    <script src="assets/js/staff.js" type="text/javascript"></script>
 
 
     <title>Document</title>
@@ -88,6 +88,53 @@
         element.css('z-index', '1');
     }
 
+    function generateStaff(){
+        var element = $('#dynamic-information');
+        element.find('.section-title').html('STAFF');
+        var html = '';
+        html += '<span class="staff-container">';
+        staff.forEach(element => {
+            html += `<span class="staff-card ${element.job}">`;
+            html += '<span class="staff-image">';
+            html += `<img src="assets/img/${element.image}">`;
+            html += '<span class="staff-job">';
+            switch(element.job){
+                case 'boss':{
+                    html += 'Team\'s Leader';
+                }break;
+                case 'projects-leader':{
+                    html += 'Projects Leader';
+                }break;
+                case 'workshops-leader':{
+                    html += 'Workshops Leader';
+                }break;
+                case 'projects-assistant':{
+                    html += 'Projects Assistant';
+                }break;
+                case 'workshops-assistant':{
+                    html += 'Workshops Assistant';
+                }break;
+            }
+            html += '</span>';
+            html += '</span>';
+            html += '<span class="staff-name">';
+            html += element.name;
+            html += '</span>';
+            html += '<span class="staff-information">';
+            html += '<p>';
+            html += element.information;
+            html += '</p>';
+            html += '</span>';
+            html += '</span>';
+        });
+        html += '</span>';
+        element.find('.section-body').html(html);
+
+        element.css('opacity', '1');
+        element.css('transform', 'translateY(0)');
+        element.css('z-index', '1');
+    }
+
     function hideIndex(){
         $('#copyright').css('bottom', '-23px');
         $('#galileo-logo').css('bottom', '-118px');
@@ -95,7 +142,7 @@
         $('#title-container').css('transform', 'translateY(20px)');
         $('#background').css('filter', 'blur(9px) brightness(0.7) grayscale(55%)');
         $('#back-container').find('.btn-back').css('transform', 'translateX(0)');
-        $('body').css('overflow-y', 'scroll');
+        $('body').css('overflow-y', 'auto');
     }
 
     function showIndex(){
@@ -126,7 +173,7 @@
                     generateHome();
                 }break;
                 case 'staff-access':{
-                    console.log('hola');
+                    generateStaff();
                 }break;
                 case 'projects-access':{
                     console.log('hola');

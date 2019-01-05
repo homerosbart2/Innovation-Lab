@@ -469,9 +469,6 @@ img::selection {
 img::-moz-selection {
   background: transparent; }
 
-body {
-  -webkit-tap-highlight-color: #FFF498; }
-
 html {
   font-family: 'Roboto', sans-serif; }
 
@@ -703,6 +700,96 @@ nav {
   align-items: center;
   flex-direction: column; }
 
+.staff-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 666px; }
+  .staff-container .staff-card {
+    margin: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    justify-content: flex-start;
+    align-items: center; }
+    .staff-container .staff-card.boss .staff-image:hover, .staff-container .staff-card.boss .staff-image:active, .staff-container .staff-card.boss .staff-image:focus {
+      border: 6px solid #3c8efa; }
+    .staff-container .staff-card.boss .staff-image .staff-job {
+      color: #3c8efa; }
+    .staff-container .staff-card.projects-leader .staff-image:hover, .staff-container .staff-card.projects-leader .staff-image:active, .staff-container .staff-card.projects-leader .staff-image:focus {
+      border: 6px solid #ff5555; }
+    .staff-container .staff-card.projects-leader .staff-image .staff-job {
+      color: #ff5555; }
+    .staff-container .staff-card.workshops-leader .staff-image:hover, .staff-container .staff-card.workshops-leader .staff-image:active, .staff-container .staff-card.workshops-leader .staff-image:focus {
+      border: 6px solid #3cfa65; }
+    .staff-container .staff-card.workshops-leader .staff-image .staff-job {
+      color: #3cfa65; }
+    .staff-container .staff-card.projects-assistant .staff-image:hover, .staff-container .staff-card.projects-assistant .staff-image:active, .staff-container .staff-card.projects-assistant .staff-image:focus {
+      border: 6px solid #ff8888; }
+    .staff-container .staff-card.projects-assistant .staff-image .staff-job {
+      color: #ff8888; }
+    .staff-container .staff-card.workshops-assistant .staff-image:hover, .staff-container .staff-card.workshops-assistant .staff-image:active, .staff-container .staff-card.workshops-assistant .staff-image:focus {
+      border: 6px solid #8effa6; }
+    .staff-container .staff-card.workshops-assistant .staff-image .staff-job {
+      color: #8effa6; }
+    .staff-container .staff-card .staff-image {
+      position: relative;
+      border-radius: 100%;
+      overflow: hidden;
+      display: flex;
+      width: 150px;
+      padding-top: 150px;
+      border: 0 solid transparent;
+      transition: 0.4s ease;
+      cursor: pointer; }
+      .staff-container .staff-card .staff-image:hover img, .staff-container .staff-card .staff-image:active img, .staff-container .staff-card .staff-image:focus img {
+        filter: blur(10px) brightness(0.7) grayscale(50%);
+        transform: scale(1.2); }
+      .staff-container .staff-card .staff-image:hover .staff-job, .staff-container .staff-card .staff-image:active .staff-job, .staff-container .staff-card .staff-image:focus .staff-job {
+        opacity: 1; }
+      .staff-container .staff-card .staff-image img {
+        transition: 0.4s ease;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -75px;
+        margin-top: -75px; }
+      .staff-container .staff-card .staff-image .staff-job {
+        transition: 0.4s ease;
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.34); }
+    .staff-container .staff-card .staff-name {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.34); }
+    .staff-container .staff-card .staff-information {
+      display: flex;
+      width: 100%;
+      background: black; }
+      .staff-container .staff-card .staff-information p {
+        width: 100%;
+        display: flex;
+        text-align: justify;
+        color: white;
+        padding: 8px 15px; }
+
 .background {
   position: fixed;
   display: flex;
@@ -788,8 +875,7 @@ body {
     .dynamic-information .section-body .subtitle {
       font-size: 24px;
       display: flex;
-      margin-top: 18px;
-      font-weight: bold; }
+      margin-top: 18px; }
     .dynamic-information .section-body p {
       padding: 15px 15px;
       text-align: justify;

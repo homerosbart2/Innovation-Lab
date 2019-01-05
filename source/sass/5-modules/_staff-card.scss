@@ -1,0 +1,144 @@
+.staff-container{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 666px;
+    .staff-card{
+        margin: 15px 10px;
+        display: flex;
+        flex-direction: column;
+        width: $staff-width + 50px;
+        justify-content: flex-start;
+        align-items: center;
+        &.boss{
+            .staff-image{
+                &:hover,
+                &:active,
+                &:focus{
+                    border: 6px solid rgb(60, 142, 250);
+                }
+                .staff-job{
+                    color: rgb(60, 142, 250);
+                }
+            }
+        }
+        &.projects-leader{
+            .staff-image{
+                &:hover,
+                &:active,
+                &:focus{
+                    border: 6px solid rgb(255, 85, 85);
+                }
+                .staff-job{
+                    color: rgb(255, 85, 85);
+                }
+            }
+        }
+        &.workshops-leader{
+            .staff-image{
+                &:hover,
+                &:active,
+                &:focus{
+                    border: 6px solid rgb(60, 250, 101);
+                }
+                .staff-job{
+                    color: rgb(60, 250, 101);
+                }
+            }
+        }
+        &.projects-assistant{
+            .staff-image{
+                &:hover,
+                &:active,
+                &:focus{
+                    border: 6px solid rgb(255, 136, 136);
+                }
+                .staff-job{
+                    color: rgb(255, 136, 136);
+                }
+            }
+        }
+        &.workshops-assistant{
+            .staff-image{
+                &:hover,
+                &:active,
+                &:focus{
+                    border: 6px solid rgb(142, 255, 166);
+                }
+                .staff-job{
+                    color: rgb(142, 255, 166);
+                }
+            }
+        }
+        
+        .staff-image{
+            position: relative;
+            border-radius: 100%;
+            overflow: hidden;
+            display: flex;
+            width: $staff-width;
+            padding-top: $staff-width;
+            border: 0 solid transparent;
+            transition: 0.4s ease;
+            cursor: pointer;
+            &:hover,
+            &:active,
+            &:focus{
+                img{
+                    filter: blur(10px) brightness(0.7) grayscale(50%);
+                    transform: scale(1.2);
+                }
+                .staff-job{
+                    opacity: 1;
+                }
+            }
+            img{
+                transition: 0.4s ease;
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -$staff-width/2;
+                margin-top: -$staff-width/2;
+            }
+            .staff-job{
+                transition: 0.4s ease;
+                position: absolute;
+                display: flex;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+            }
+        }
+        .staff-name{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            font-size: 16px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+        }
+        .staff-information{
+            display: flex;
+            width: 100%;
+            background: black;
+            p{
+                width: 100%;
+                display: flex;
+                text-align: justify;
+                color: white;
+                padding: 8px 15px;
+            }
+        }
+    }
+}
