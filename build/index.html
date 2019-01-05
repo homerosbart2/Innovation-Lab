@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Importaciones -->
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+
+    <title>Document</title>
+</head>
+<body>
+    <span id="background" class="background">
+
+    </span>
+    <span class="title-container">
+        <span class="inner-container">
+            <span id="title-container" class="title-container">
+                <span class="title">
+                        INNOVATION LABORATORY
+                </span>
+                <span class="title-menu">
+                    <a id="home-access" class="btn-menu">Home</a>
+                    <a id="staff-access" class="btn-menu">Staff</a>
+                    <a id="projects-access" class="btn-menu">Projects</a>
+                    <a id="presentations-access" class="btn-menu">Presentations</a>
+                    <a id="workshops-access" class="btn-menu">Workshops</a>
+                </span>
+            </span>
+        </span>
+    </span>
+    <span id="dynamic-information" class="dynamic-information">
+        <span class="section-title">
+
+        </span>
+        <span class="section-body">
+            
+        </span>
+    </span>
+    <span id="copyright" class="copyright">© 2019 Laboratorio de Innovacion.</span>
+    <span id="galileo-logo" class="galileo-logo">
+        <img src="assets/img/galileo-logo" alt="Universidad Galileo">
+    </span>
+    <span id="back-container" class="back-container">
+        <a id="back" class="btn-back">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </span>
+</body>
+</html>
+
+<script>
+    function generateHome(){
+        var element = $('#dynamic-information');
+        element.find('.section-title').html('HOME');
+
+        var html = '';
+            html += '<span class="subtitle">';
+            html += 'About the Innovation Lab';
+            html += '</span>';
+            html += '<p>';
+            html += '"Nothing is a mistake. There\'s no win and no fail, there\'s only make." - Corita Kent';
+            html += '</p>';
+            html += '<p>';
+            html += 'The Innovation Lab fosters a unique culture to cultivate curiosity and use creativity as a tool for the development of innovative technology projects. Through an environment characterized by teamwork, ensuring project success through experimentation of new ideas and the explicit permissibility of making mistakes and fail in order to achieve allow members to express themselves, learn, share and grow as a community.';
+            html += '</p>';
+            html += '<p>';
+            html += 'The Lab is committed to see beyond the obvious, we are aware that more important than finding a single correct answer we need to consider all questions as we can imagine and explore different ideas. We like to use design thinking, build prototypes and make use of innovative technologies such as 3D printing, drones, computer vision and augmented reality (Leap Motion, Kinect, Google Glass, Oculus Rift), the Internet of Things (Arduino, Launchpad, BeagleBone Black and RaspberryPi) and bring these technologies together to our experiments. Build circuits, write code, develop software and do the necessary to make things work.';
+            html += '</p>';
+            html += '<p>';
+            html += 'In the pursuit of innovation is also required a market and raise awareness in people that would be users of this technology that eventually will become products that people can receive and improve their lifestyle. Therefore, the Lab also has a commitment to promoting entrepreneurship and creating startups. The startups that the Lab supports work in the area of ​​technology because we believe that is the way to have a tangible and short-term change at all levels.';
+            html += '</p>';
+            html += '<span class="subtitle">';
+            html += 'Why Innovation?';
+            html += '</span>';
+            html += '<p>In 2016, Guatemala is ranked 97th globally in terms of innovation, our score is 27.30/100. Both the global leader (Switzerland) and the Latin American leaders (Chile & Costa Rica) have won their seats by investing on research, technological development and education. For us, there is a great opportunity for improvement in the area of ​​innovation.</p>';
+            html += '<p>Innovation requires novelty, can be a small change (sustained innovation) or a radical ( disruptive innovation) but either way, it will be something new. From my perspective this is achieved through the creativity that is nothing else that imagination put into practice. So to succeed in creating, we make use of innovation in assessing how to provide value and solve the right problems in a better way. We constantly look how to be agents of change and to connect ideas when doing technological development, that’s when we use innovation as our key tool in order that things can be implemented. That is why we decided to implement this effort as a laboratory rather than a department. For since the name suggests action implicit, that practical activities will be conducted and projects will be implemented.</p>';
+        
+        element.find('.section-body').html(html);
+        
+        element.css('opacity', '1');
+        element.css('transform', 'translateY(0)');
+        element.css('z-index', '1');
+    }
+
+    function hideIndex(){
+        $('#copyright').css('bottom', '-23px');
+        $('#galileo-logo').css('bottom', '-118px');
+        $('#title-container').css('opacity', '0');
+        $('#title-container').css('transform', 'translateY(20px)');
+        $('#background').css('filter', 'blur(9px) brightness(0.7) grayscale(55%)');
+        $('#back-container').find('.btn-back').css('transform', 'translateX(0)');
+        $('body').css('overflow-y', 'scroll');
+    }
+
+    function showIndex(){
+        $('#copyright').css('bottom', '130px');
+        $('#galileo-logo').css('bottom', '0');
+        var element = $('#title-container');
+        element.css('opacity', '1');
+        element.css('transform', 'translateY(0)');
+        $('#background').css('filter', 'blur(9px) brightness(0.7) grayscale(0)');
+        $('#back-container').find('.btn-back').css('transform', 'translateX(-85px)');
+        element = $('#dynamic-information');
+        element.css('opacity', '0');
+        element.css('transform', 'translateY(-40px)');
+        element.css('z-index', 0);
+        $('body').css('overflow-y', 'hidden');
+    }
+
+    $(document).ready(()=>{
+        $('.background').css('opacity', '1');
+        $('.background').css('transform', 'scale(1.2)');
+
+        $('.btn-menu').click((event)=>{
+            hideIndex();
+
+            var element = event.target;
+            switch(element.id){
+                case 'home-access':{
+                    generateHome();
+                }break;
+                case 'staff-access':{
+                    console.log('hola');
+                }break;
+                case 'projects-access':{
+                    console.log('hola');
+                }break;
+                case 'presentations-access':{
+                    console.log('hola');
+                }break;
+                case 'workshops-access':{
+                    console.log('hola');
+                }break;
+            }
+        });
+
+        $('#back').click(()=>{
+            showIndex();
+        });
+    });
+</script>

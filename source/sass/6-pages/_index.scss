@@ -1,0 +1,172 @@
+.background{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/bg2.jpg"); 
+    background-size: cover;
+    z-index: 0;
+    filter: blur(9px) brightness(0.7);
+    transform: scale(1);
+    opacity: 0;
+    transition: 1.5s ease;
+}
+
+body{
+    background: black;
+    display: flex;
+    justify-content: center;
+}
+
+.galileo-logo{
+    position: fixed;
+    bottom: 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    background: white;
+    width: 100%;
+    z-index: 1;
+    transition: 0.4s ease;
+    img{
+        width: 200px;
+        height: 78px;
+        filter: grayscale(100%);
+    }
+}
+
+.copyright{
+    position: fixed;
+    bottom: 130px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+    transition: 0.4s ease;
+}
+
+.back-container{
+    position: fixed;
+    bottom: 40px;
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    .btn-back{
+        margin-left: 40px;
+        margin-right: 40px;
+        transform: translateX(-85px);
+        transition: 0.3s ease;
+        &:hover,
+        &:active,
+        &:focus{
+            transform: scale(1.2) !important;
+            color: black;
+        }
+    }
+}
+
+.dynamic-information{
+    padding: 50px 50px 50px 50px;
+    position: relative;
+    color: white;
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: 0.4s ease;
+    max-width: 850px;
+    .section-title{
+        display: flex;
+        padding-left: 24px;
+        padding-right: 24px;
+        font-size: 34px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .section-body{
+        display: flex;
+        padding-left: 24px;
+        padding-right: 24px;
+        flex-direction: column;
+        .subtitle{
+            font-size: 24px;
+            display: flex;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+        p{
+            padding: 15px 15px;
+            text-align: justify;
+            background: black;
+            color: white;
+            margin: 5px 0;
+        }
+    }
+}
+
+.title-container{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    transition: 0.4s ease;
+    .inner-container{
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        .title-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 900px;
+            height: auto;
+            padding: 50px 50px;
+            justify-content: center;
+            &:hover{
+                .title{
+                    border-bottom: 7px solid white;
+                    transform: translateY(-30px);
+                }
+                .title-menu{
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .title{
+                display: flex;
+                height: 110px;
+                color: white;
+                text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+                font-size: 68px;
+                border-bottom: 0 solid transparent;
+                transition: 0.2s ease;
+                //text-transform: uppercase;
+                font-weight: bold;
+            }
+            .title-menu{
+                display: flex;
+                justify-content: space-around;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+                opacity: 0;
+                transform: translateY(-30px);
+                width: 658px;
+                .btn-menu{
+                    font-size: 15px;
+                    padding: 10px 15px;
+                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+                    &:hover,
+                    &:active,
+                    &:focus{
+                    }
+                }
+            }
+        }
+    }
+}
