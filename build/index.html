@@ -21,7 +21,7 @@
     </span>
     <span class="title-container">
         <span class="inner-container">
-            <span id="title-container" class="title-container">
+            <span id="title-container" class="title-container no-select">
                 <span class="title">
                         INNOVATION LABORATORY
                 </span>
@@ -266,6 +266,7 @@
         element.css('z-index', 0);
         $('body').css('overflow-y', 'hidden');
         $('#title-container').css('z-index', '1');
+        element.find('.section-body').html('');
     }
 
     $(document).ready(()=>{

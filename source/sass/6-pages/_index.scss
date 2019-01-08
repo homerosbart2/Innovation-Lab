@@ -1,9 +1,9 @@
-.background{
+.background {
     position: fixed;
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-image: url("../img/bg2.jpg"); 
+    background-image: url("../img/bg2.jpg");
     background-size: cover;
     z-index: 0;
     filter: blur(9px) brightness(0.7);
@@ -12,17 +12,34 @@
     transition: 1.5s ease;
 }
 
-body{
+.no-select {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+body {
     background: black;
     display: flex;
     justify-content: center;
 }
 
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */
 }
-.galileo-logo{
+
+.galileo-logo {
     position: fixed;
     bottom: 0;
     padding: 20px 0;
@@ -32,14 +49,14 @@ body{
     width: 100%;
     z-index: 1;
     transition: 0.4s ease;
-    img{
+    img {
         width: 200px;
         height: 78px;
         filter: grayscale(100%);
     }
 }
 
-.copyright{
+.copyright {
     position: fixed;
     bottom: 130px;
     display: flex;
@@ -49,37 +66,34 @@ body{
     z-index: 1;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
     transition: 0.4s ease;
-    @include media-max(650px){
+    @include media-max(650px) {
         font-size: 12px;
     }
-    @include media-max(500px){
+    @include media-max(500px) {
         font-size: 11px;
     }
 }
 
-.back-container{
+.back-container {
     position: fixed;
     bottom: 40px;
-    display: flex;
-    //width: 100%;
-    z-index: 1;
-    //background: pink;
+    display: flex; //width: 100%;
+    z-index: 1; //background: pink;
     left: 0;
-    .btn-back{
-        margin-left: 40px;
-        //margin-right: 40px;
+    .btn-back {
+        margin-left: 40px; //margin-right: 40px;
         transform: translateX(-85px);
         transition: 0.3s ease;
         &:hover,
         &:active,
-        &:focus{
+        &:focus {
             transform: scale(1.2) !important;
             color: black;
         }
     }
 }
 
-.dynamic-information{
+.dynamic-information {
     padding: 50px 50px 50px 50px;
     position: relative;
     color: white;
@@ -92,7 +106,7 @@ body{
     max-width: 900px;
     width: 100%;
     align-items: center;
-    .section-title{
+    .section-title {
         display: flex;
         padding-left: 24px;
         padding-right: 24px;
@@ -101,61 +115,61 @@ body{
         text-transform: uppercase;
         width: 100%;
         justify-content: flex-start;
-        @include media-max(650px){
+        @include media-max(650px) {
             font-size: 30px;
         }
-        @include media-max(500px){
+        @include media-max(500px) {
             font-size: 26px;
         }
     }
-    .section-body{
+    .section-body {
         display: flex;
         padding-left: 24px;
         padding-right: 24px;
         flex-direction: column;
         width: 100%;
-        .subtitle{
+        .subtitle {
             font-size: 24px;
             display: flex;
             margin-top: 18px;
-            @include media-max(650px){
+            @include media-max(650px) {
                 font-size: 20px;
             }
-            @include media-max(500px){
+            @include media-max(500px) {
                 font-size: 16px;
             }
         }
-        p{
+        p {
             padding: 15px 15px;
             text-align: justify;
             background: black;
             color: white;
             margin: 5px 0;
-            @include media-max(650px){
+            @include media-max(650px) {
                 font-size: 12px;
             }
-            @include media-max(500px){
+            @include media-max(500px) {
                 font-size: 11px;
             }
         }
     }
 }
 
-.title-container{
+.title-container {
     position: fixed;
     display: flex;
     width: 100vw;
     height: 100vh;
     z-index: 1;
     transition: 0.4s ease;
-    .inner-container{
+    .inner-container {
         position: relative;
         display: flex;
         width: 100%;
         height: 100%;
         justify-content: center;
         align-items: center;
-        .title-container{
+        .title-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -163,54 +177,53 @@ body{
             height: auto;
             padding: 50px 50px;
             justify-content: center;
-            &:hover{
-                .title{
+            &:hover {
+                .title {
                     border-bottom: 7px solid white;
                     transform: translateY(-30px);
                 }
-                .title-menu{
+                .title-menu {
                     opacity: 1;
                     transform: translateY(0);
                 }
-                @include media-max(500px){
-                    .title{
+                @include media-max(500px) {
+                    .title {
                         border-bottom: 7px solid white;
                         transform: translateY(-20px);
                     }
                 }
             }
-            .title{
+            .title {
                 display: flex;
                 height: 110px;
                 color: white;
                 text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
                 font-size: 68px;
                 border-bottom: 0 solid transparent;
-                transition: 0.2s ease;
-                //text-transform: uppercase;
+                transition: 0.2s ease; //text-transform: uppercase;
                 font-weight: bold;
-                @include media-max(900px){
+                @include media-max(900px) {
                     font-size: 58px;
                     height: 100px;
                 }
-                @include media-max(750px){
+                @include media-max(750px) {
                     font-size: 48px;
                     height: 90px;
                 }
-                @include media-max(650px){
+                @include media-max(650px) {
                     font-size: 38px;
                     height: 70px;
                 }
-                @include media-max(500px){
+                @include media-max(500px) {
                     font-size: 28px;
                     height: 50px;
                 }
-                @include media-max(380px){
+                @include media-max(380px) {
                     font-size: 22px;
                     height: 50px;
                 }
             }
-            .title-menu{
+            .title-menu {
                 display: flex;
                 justify-content: space-between;
                 transition: transform 0.2s ease, opacity 0.2s ease;
@@ -219,24 +232,24 @@ body{
                 width: 658px;
                 flex-wrap: wrap;
                 max-width: 100%;
-                @include media-max(750px){
+                @include media-max(750px) {
                     width: 580px;
                 }
-                @include media-max(650px){
+                @include media-max(650px) {
                     width: 470px;
                 }
-                @include media-max(500px){
+                @include media-max(500px) {
                     width: 280px;
                 }
-                .btn-menu{
+                .btn-menu {
                     padding: 10px 15px;
                     box-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
                     font-size: 15px;
                     margin: 5px 0;
-                    @include media-max(650px){
+                    @include media-max(650px) {
                         font-size: 12px;
                     }
-                    @include media-max(500px){
+                    @include media-max(500px) {
                         font-size: 11px;
                         padding: 5px 10px;
                     }
