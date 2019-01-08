@@ -5,7 +5,6 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 666px;
     .staff-card{
         margin: 15px 10px;
         display: flex;
@@ -18,10 +17,13 @@
                 &:hover,
                 &:active,
                 &:focus{
-                    border: 6px solid rgb(60, 142, 250);
+                    border: 6px solid $boss-color;
+                    & + .staff-name + .staff-information{
+                        border-bottom: 6px solid $boss-color;
+                    }
                 }
                 .staff-job{
-                    color: rgb(60, 142, 250);
+                    color: $boss-color;
                 }
             }
         }
@@ -30,10 +32,13 @@
                 &:hover,
                 &:active,
                 &:focus{
-                    border: 6px solid rgb(255, 85, 85);
+                    border: 6px solid $projects-leader-color;
+                    & + .staff-name + .staff-information{
+                        border-bottom: 6px solid $projects-leader-color;
+                    }
                 }
                 .staff-job{
-                    color: rgb(255, 85, 85);
+                    color: $projects-leader-color;
                 }
             }
         }
@@ -42,10 +47,13 @@
                 &:hover,
                 &:active,
                 &:focus{
-                    border: 6px solid rgb(60, 250, 101);
+                    border: 6px solid $workshops-leader-color;
+                    & + .staff-name + .staff-information{
+                        border-bottom: 6px solid $workshops-leader-color;
+                    }
                 }
                 .staff-job{
-                    color: rgb(60, 250, 101);
+                    color: $workshops-leader-color;
                 }
             }
         }
@@ -54,10 +62,13 @@
                 &:hover,
                 &:active,
                 &:focus{
-                    border: 6px solid rgb(255, 136, 136);
+                    border: 6px solid $projects-assistant-color;
+                    & + .staff-name + .staff-information{
+                        border-bottom: 6px solid $projects-assistant-color;
+                    }
                 }
                 .staff-job{
-                    color: rgb(255, 136, 136);
+                    color: $projects-assistant-color;
                 }
             }
         }
@@ -66,10 +77,13 @@
                 &:hover,
                 &:active,
                 &:focus{
-                    border: 6px solid rgb(142, 255, 166);
+                    border: 6px solid $workshops-assistant-color;
+                    & + .staff-name + .staff-information{
+                        border-bottom: 6px solid $workshops-assistant-color;
+                    }
                 }
                 .staff-job{
-                    color: rgb(142, 255, 166);
+                    color: $workshops-assistant-color;
                 }
             }
         }
@@ -81,7 +95,7 @@
             display: flex;
             width: $staff-width;
             padding-top: $staff-width;
-            border: 0 solid transparent;
+            border: 6px solid transparent;
             transition: 0.4s ease;
             cursor: pointer;
             &:hover,
@@ -132,12 +146,14 @@
             display: flex;
             width: 100%;
             background: black;
+            transition: 0.4s ease;
+            border-bottom: 6px solid transparent;
             p{
                 width: 100%;
                 display: flex;
                 text-align: justify;
                 color: white;
-                padding: 8px 15px;
+                padding: 2px 15px 8px 15px;
             }
         }
     }

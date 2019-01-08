@@ -706,8 +706,7 @@ nav {
   flex-direction: row;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 666px; }
+  justify-content: space-around; }
   .staff-container .staff-card {
     margin: 15px 10px;
     display: flex;
@@ -717,22 +716,32 @@ nav {
     align-items: center; }
     .staff-container .staff-card.boss .staff-image:hover, .staff-container .staff-card.boss .staff-image:active, .staff-container .staff-card.boss .staff-image:focus {
       border: 6px solid #3c8efa; }
+      .staff-container .staff-card.boss .staff-image:hover + .staff-name + .staff-information, .staff-container .staff-card.boss .staff-image:active + .staff-name + .staff-information, .staff-container .staff-card.boss .staff-image:focus + .staff-name + .staff-information {
+        border-bottom: 6px solid #3c8efa; }
     .staff-container .staff-card.boss .staff-image .staff-job {
       color: #3c8efa; }
     .staff-container .staff-card.projects-leader .staff-image:hover, .staff-container .staff-card.projects-leader .staff-image:active, .staff-container .staff-card.projects-leader .staff-image:focus {
       border: 6px solid #ff5555; }
+      .staff-container .staff-card.projects-leader .staff-image:hover + .staff-name + .staff-information, .staff-container .staff-card.projects-leader .staff-image:active + .staff-name + .staff-information, .staff-container .staff-card.projects-leader .staff-image:focus + .staff-name + .staff-information {
+        border-bottom: 6px solid #ff5555; }
     .staff-container .staff-card.projects-leader .staff-image .staff-job {
       color: #ff5555; }
     .staff-container .staff-card.workshops-leader .staff-image:hover, .staff-container .staff-card.workshops-leader .staff-image:active, .staff-container .staff-card.workshops-leader .staff-image:focus {
       border: 6px solid #3cfa65; }
+      .staff-container .staff-card.workshops-leader .staff-image:hover + .staff-name + .staff-information, .staff-container .staff-card.workshops-leader .staff-image:active + .staff-name + .staff-information, .staff-container .staff-card.workshops-leader .staff-image:focus + .staff-name + .staff-information {
+        border-bottom: 6px solid #3cfa65; }
     .staff-container .staff-card.workshops-leader .staff-image .staff-job {
       color: #3cfa65; }
     .staff-container .staff-card.projects-assistant .staff-image:hover, .staff-container .staff-card.projects-assistant .staff-image:active, .staff-container .staff-card.projects-assistant .staff-image:focus {
       border: 6px solid #ff8888; }
+      .staff-container .staff-card.projects-assistant .staff-image:hover + .staff-name + .staff-information, .staff-container .staff-card.projects-assistant .staff-image:active + .staff-name + .staff-information, .staff-container .staff-card.projects-assistant .staff-image:focus + .staff-name + .staff-information {
+        border-bottom: 6px solid #ff8888; }
     .staff-container .staff-card.projects-assistant .staff-image .staff-job {
       color: #ff8888; }
     .staff-container .staff-card.workshops-assistant .staff-image:hover, .staff-container .staff-card.workshops-assistant .staff-image:active, .staff-container .staff-card.workshops-assistant .staff-image:focus {
       border: 6px solid #8effa6; }
+      .staff-container .staff-card.workshops-assistant .staff-image:hover + .staff-name + .staff-information, .staff-container .staff-card.workshops-assistant .staff-image:active + .staff-name + .staff-information, .staff-container .staff-card.workshops-assistant .staff-image:focus + .staff-name + .staff-information {
+        border-bottom: 6px solid #8effa6; }
     .staff-container .staff-card.workshops-assistant .staff-image .staff-job {
       color: #8effa6; }
     .staff-container .staff-card .staff-image {
@@ -742,7 +751,7 @@ nav {
       display: flex;
       width: 150px;
       padding-top: 150px;
-      border: 0 solid transparent;
+      border: 6px solid transparent;
       transition: 0.4s ease;
       cursor: pointer; }
       .staff-container .staff-card .staff-image:hover img, .staff-container .staff-card .staff-image:active img, .staff-container .staff-card .staff-image:focus img {
@@ -782,13 +791,130 @@ nav {
     .staff-container .staff-card .staff-information {
       display: flex;
       width: 100%;
-      background: black; }
+      background: black;
+      transition: 0.4s ease;
+      border-bottom: 6px solid transparent; }
       .staff-container .staff-card .staff-information p {
         width: 100%;
         display: flex;
         text-align: justify;
         color: white;
-        padding: 8px 15px; }
+        padding: 2px 15px 8px 15px; }
+
+.workshops-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 900px; }
+  .workshops-container .workshop-card {
+    margin: 7.5px 15px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.2s ease;
+    cursor: pointer;
+    /* &:first-child{
+            margin-top: 15px;
+        }
+        &:last-child{
+            margin-bottom: 15px;
+        } */ }
+    .workshops-container .workshop-card:hover img, .workshops-container .workshop-card:focus img, .workshops-container .workshop-card:active img {
+      transform: scale(1.1); }
+    .workshops-container .workshop-card:hover .workshop-info-container, .workshops-container .workshop-card:focus .workshop-info-container, .workshops-container .workshop-card:active .workshop-info-container {
+      opacity: 0; }
+    .workshops-container .workshop-card:hover .btn-back, .workshops-container .workshop-card:focus .btn-back, .workshops-container .workshop-card:active .btn-back {
+      transform: rotate(45deg) scale(1); }
+    .workshops-container .workshop-card.expanded {
+      height: 200px !important; }
+      .workshops-container .workshop-card.expanded img {
+        transform: scale(1.1); }
+    .workshops-container .workshop-card img {
+      position: absolute;
+      filter: blur(6px) brightness(0.5);
+      transition: 0.2s ease; }
+    .workshops-container .workshop-card .workshop-info-container {
+      display: flex;
+      margin-right: 15px;
+      margin-left: 15px;
+      z-index: 1;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      transition: 0.2s ease; }
+      .workshops-container .workshop-card .workshop-info-container .workshop-name {
+        color: white;
+        font-size: 24px;
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+        text-transform: uppercase;
+        margin-right: 15px; }
+      .workshops-container .workshop-card .workshop-info-container .horizontal-separator {
+        flex-shrink: 0;
+        display: flex;
+        padding-top: 100%;
+        width: 6px;
+        background: white;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.34); }
+      .workshops-container .workshop-card .workshop-info-container .workshop-introduction {
+        color: white;
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+        margin-left: 15px; }
+    .workshops-container .workshop-card .workshop-duration {
+      color: white;
+      z-index: 1;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+      display: flex;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      justify-content: center;
+      align-items: center; }
+      .workshops-container .workshop-card .workshop-duration i {
+        margin-right: 5px; }
+    .workshops-container .workshop-card .btn-back {
+      transition: 0.2s ease;
+      z-index: 2;
+      position: absolute;
+      transform: rotate(0deg) scale(0); }
+  .workshops-container .workshop-information {
+    color: white;
+    z-index: -1;
+    margin-top: -150px;
+    transition: 0.2s ease;
+    opacity: 0;
+    height: 150px;
+    overflow: hidden; }
+    .workshops-container .workshop-information.expanded {
+      margin-top: 0;
+      opacity: 1;
+      z-index: 1;
+      height: auto; }
+    .workshops-container .workshop-information p {
+      margin: 5px 15px !important; }
+      .workshops-container .workshop-information p i {
+        margin-right: 12px; }
+    .workshops-container .workshop-information .staff {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center; }
+      .workshops-container .workshop-information .staff .staff-image {
+        display: flex;
+        height: 100px;
+        width: 100px;
+        overflow: hidden;
+        border-radius: 100%; }
+        .workshops-container .workshop-information .staff .staff-image img {
+          width: 100%; }
 
 .background {
   position: fixed;
@@ -807,6 +933,12 @@ body {
   background: black;
   display: flex;
   justify-content: center; }
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */ }
 
 .galileo-logo {
   position: fixed;
@@ -838,11 +970,10 @@ body {
   position: fixed;
   bottom: 40px;
   display: flex;
-  width: 100%;
-  z-index: 1; }
+  z-index: 1;
+  left: 0; }
   .back-container .btn-back {
     margin-left: 40px;
-    margin-right: 40px;
     transform: translateX(-85px);
     transition: 0.3s ease; }
     .back-container .btn-back:hover, .back-container .btn-back:active, .back-container .btn-back:focus {
@@ -859,19 +990,24 @@ body {
   opacity: 0;
   transform: translateY(-40px);
   transition: 0.4s ease;
-  max-width: 850px; }
+  max-width: 900px;
+  width: 100%;
+  align-items: center; }
   .dynamic-information .section-title {
     display: flex;
     padding-left: 24px;
     padding-right: 24px;
     font-size: 34px;
     font-weight: bold;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    width: 100%;
+    justify-content: flex-start; }
   .dynamic-information .section-body {
     display: flex;
     padding-left: 24px;
     padding-right: 24px;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 100%; }
     .dynamic-information .section-body .subtitle {
       font-size: 24px;
       display: flex;
