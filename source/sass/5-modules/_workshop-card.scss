@@ -67,6 +67,12 @@
                 text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
                 text-transform: uppercase;
                 margin-right: 15px;
+                @include media-max(650px){
+                    font-size: 20px;
+                }
+                @include media-max(500px){
+                    font-size: 16px;
+                }
             }
             .horizontal-separator{
                 flex-shrink: 0;
@@ -80,6 +86,12 @@
                 color: white;
                 text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
                 margin-left: 15px;
+                @include media-max(650px){
+                    font-size: 12px;
+                }
+                @include media-max(500px){
+                    font-size: 11px;
+                }
             }
         }
         .workshop-duration{
@@ -95,6 +107,12 @@
             align-items: center;
             i{
                 margin-right: 5px;
+            }
+            @include media-max(650px){
+                font-size: 12px;
+            }
+            @include media-max(500px){
+                font-size: 11px;
             }
         }
         .btn-back{

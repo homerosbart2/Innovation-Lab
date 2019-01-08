@@ -855,6 +855,12 @@ nav {
         text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
         text-transform: uppercase;
         margin-right: 15px; }
+        @media only screen and (max-width: 650px) {
+          .workshops-container .workshop-card .workshop-info-container .workshop-name {
+            font-size: 20px; } }
+        @media only screen and (max-width: 500px) {
+          .workshops-container .workshop-card .workshop-info-container .workshop-name {
+            font-size: 16px; } }
       .workshops-container .workshop-card .workshop-info-container .horizontal-separator {
         flex-shrink: 0;
         display: flex;
@@ -866,6 +872,12 @@ nav {
         color: white;
         text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
         margin-left: 15px; }
+        @media only screen and (max-width: 650px) {
+          .workshops-container .workshop-card .workshop-info-container .workshop-introduction {
+            font-size: 12px; } }
+        @media only screen and (max-width: 500px) {
+          .workshops-container .workshop-card .workshop-info-container .workshop-introduction {
+            font-size: 11px; } }
     .workshops-container .workshop-card .workshop-duration {
       color: white;
       z-index: 1;
@@ -879,6 +891,12 @@ nav {
       align-items: center; }
       .workshops-container .workshop-card .workshop-duration i {
         margin-right: 5px; }
+      @media only screen and (max-width: 650px) {
+        .workshops-container .workshop-card .workshop-duration {
+          font-size: 12px; } }
+      @media only screen and (max-width: 500px) {
+        .workshops-container .workshop-card .workshop-duration {
+          font-size: 11px; } }
     .workshops-container .workshop-card .btn-back {
       transition: 0.2s ease;
       z-index: 2;
@@ -965,6 +983,12 @@ body {
   z-index: 1;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
   transition: 0.4s ease; }
+  @media only screen and (max-width: 650px) {
+    .copyright {
+      font-size: 12px; } }
+  @media only screen and (max-width: 500px) {
+    .copyright {
+      font-size: 11px; } }
 
 .back-container {
   position: fixed;
@@ -1002,6 +1026,12 @@ body {
     text-transform: uppercase;
     width: 100%;
     justify-content: flex-start; }
+    @media only screen and (max-width: 650px) {
+      .dynamic-information .section-title {
+        font-size: 30px; } }
+    @media only screen and (max-width: 500px) {
+      .dynamic-information .section-title {
+        font-size: 26px; } }
   .dynamic-information .section-body {
     display: flex;
     padding-left: 24px;
@@ -1012,12 +1042,24 @@ body {
       font-size: 24px;
       display: flex;
       margin-top: 18px; }
+      @media only screen and (max-width: 650px) {
+        .dynamic-information .section-body .subtitle {
+          font-size: 20px; } }
+      @media only screen and (max-width: 500px) {
+        .dynamic-information .section-body .subtitle {
+          font-size: 16px; } }
     .dynamic-information .section-body p {
       padding: 15px 15px;
       text-align: justify;
       background: black;
       color: white;
       margin: 5px 0; }
+      @media only screen and (max-width: 650px) {
+        .dynamic-information .section-body p {
+          font-size: 12px; } }
+      @media only screen and (max-width: 500px) {
+        .dynamic-information .section-body p {
+          font-size: 11px; } }
 
 .title-container {
   position: fixed;
@@ -1047,6 +1089,10 @@ body {
       .title-container .inner-container .title-container:hover .title-menu {
         opacity: 1;
         transform: translateY(0); }
+      @media only screen and (max-width: 500px) {
+        .title-container .inner-container .title-container:hover .title {
+          border-bottom: 7px solid white;
+          transform: translateY(-20px); } }
       .title-container .inner-container .title-container .title {
         display: flex;
         height: 110px;
@@ -1056,14 +1102,53 @@ body {
         border-bottom: 0 solid transparent;
         transition: 0.2s ease;
         font-weight: bold; }
+        @media only screen and (max-width: 900px) {
+          .title-container .inner-container .title-container .title {
+            font-size: 58px;
+            height: 100px; } }
+        @media only screen and (max-width: 750px) {
+          .title-container .inner-container .title-container .title {
+            font-size: 48px;
+            height: 90px; } }
+        @media only screen and (max-width: 650px) {
+          .title-container .inner-container .title-container .title {
+            font-size: 38px;
+            height: 70px; } }
+        @media only screen and (max-width: 500px) {
+          .title-container .inner-container .title-container .title {
+            font-size: 28px;
+            height: 50px; } }
+        @media only screen and (max-width: 380px) {
+          .title-container .inner-container .title-container .title {
+            font-size: 22px;
+            height: 50px; } }
       .title-container .inner-container .title-container .title-menu {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         transition: transform 0.2s ease, opacity 0.2s ease;
         opacity: 0;
         transform: translateY(-30px);
-        width: 658px; }
+        width: 658px;
+        flex-wrap: wrap;
+        max-width: 100%; }
+        @media only screen and (max-width: 750px) {
+          .title-container .inner-container .title-container .title-menu {
+            width: 580px; } }
+        @media only screen and (max-width: 650px) {
+          .title-container .inner-container .title-container .title-menu {
+            width: 470px; } }
+        @media only screen and (max-width: 500px) {
+          .title-container .inner-container .title-container .title-menu {
+            width: 280px; } }
         .title-container .inner-container .title-container .title-menu .btn-menu {
-          font-size: 15px;
           padding: 10px 15px;
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.34); }
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+          font-size: 15px;
+          margin: 5px 0; }
+          @media only screen and (max-width: 650px) {
+            .title-container .inner-container .title-container .title-menu .btn-menu {
+              font-size: 12px; } }
+          @media only screen and (max-width: 500px) {
+            .title-container .inner-container .title-container .title-menu .btn-menu {
+              font-size: 11px;
+              padding: 5px 10px; } }
