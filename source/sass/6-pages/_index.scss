@@ -10,6 +10,10 @@
     transform: scale(1);
     opacity: 0;
     transition: 1.5s ease;
+    &.unfocused{
+        transition: 0.4s ease;
+        filter: blur(40px) brightness(0.7) !important;
+    }
 }
 
 .no-select {
@@ -177,7 +181,10 @@ body {
             height: auto;
             padding: 50px 50px;
             justify-content: center;
-            &:hover {
+            margin-top: -30px;
+            &:hover,
+            &:active,
+            &:focus {
                 .title {
                     border-bottom: 7px solid white;
                     transform: translateY(-30px);
@@ -185,6 +192,11 @@ body {
                 .title-menu {
                     opacity: 1;
                     transform: translateY(0);
+                    user-select: initial;
+                    -moz-user-select: none;
+                    -khtml-user-select: none;
+                    -webkit-user-select: none;
+                    -o-user-select: none;
                 }
                 @include media-max(500px) {
                     .title {
@@ -229,6 +241,11 @@ body {
                 transition: transform 0.2s ease, opacity 0.2s ease;
                 opacity: 0;
                 transform: translateY(-30px);
+                user-select: none;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -o-user-select: none;
                 width: 658px;
                 flex-wrap: wrap;
                 max-width: 100%;
@@ -240,6 +257,9 @@ body {
                 }
                 @include media-max(500px) {
                     width: 280px;
+                }
+                @include media-max(380px) {
+                    width: 205px;
                 }
                 .btn-menu {
                     padding: 10px 15px;

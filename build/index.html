@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="assets/js/staff.js" type="text/javascript"></script>
     <script src="assets/js/workshops.js" type="text/javascript"></script>
+    <script src="assets/js/projects.js" type="text/javascript"></script>
 
 
     <title>Document</title>
 </head>
 <body>
     <span id="background" class="background">
-
     </span>
     <span class="title-container">
         <span class="inner-container">
@@ -56,6 +56,8 @@
 </html>
 
 <script>
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Agu', 'Sep', 'Oct', 'Nov', 'Dec'];
+
     function generateHome(){
         var element = $('#dynamic-information');
         element.find('.section-title').html('HOME');
@@ -89,6 +91,89 @@
         element.css('z-index', '1');
     }
 
+    function generateProjects(){
+        var correlative = 0;
+        var element = $('#dynamic-information');
+        element.find('.section-title').html('PROJECTS');
+        var html = '';
+        html += '<span class="projects-container">';
+        projects.forEach(element => {
+            html += `<span id="${correlative}" class="project-card">`;
+            html += `<img src="assets/img/${element.thumbnail}">`;
+            html += '<span class="project-info-container">';
+            html += '<span class="project-name">';
+            html += element.name;
+            html += '</span>';
+            html += '<span class="project-date">';
+            html += months[element.month - 1] + ' ' + element.year
+            html += '</span>';
+            html += '<p class="project-introduction">';
+            html += element.introduction;
+            html += '</p>';
+            html += '</span>';
+            html += '<a class="btn-back">';
+            html += '<i class="fas fa-arrow-up"></i>';
+            html += '</a>';
+            html += '</span>';
+            correlative++;
+        });
+        html += '</span>';
+        html += `<span id="project-information" class="project-information">`;
+        html += '</span>';
+        element.find('.section-body').html(html);
+
+
+        $('.project-card').click((event)=>{
+            element = $(event.currentTarget);
+            if(element.hasClass('expanded')){
+                element.removeClass('expanded');
+                element.parent().removeClass('expanded');
+                $('#background').removeClass('unfocused');
+                element.find('.btn-back').html('<i class="fas fa-arrow-up"></i>');
+                $('#project-information').removeClass('expanded');
+            }else{
+                element.addClass('expanded');
+                element.parent().addClass('expanded');
+                $('#background').addClass('unfocused');
+                element.find('.btn-back').html('<i class="fas fa-plus"></i>');
+
+                html = '';
+                var project = projects[element.attr('id')];
+
+                html += '<span class="project-summary">';
+                html += project.summary;
+                html += '</span>';
+                html += '<p class="project-status">';
+                html += '<i class="fas fa-circle"></i>';
+                html += project.status;
+                html += '</p>';
+                if(typeof(project.video) !== 'undefined'){
+                    html += '<span id="youtube-video" class="youtube-video">';
+                    html += project.video;
+                    html += '</span>';
+                }
+                (project.description).forEach((desc)=>{
+                    html += '<p>';
+                    html += desc;
+                    html += '</p>';
+                });
+                
+                $('#project-information').html(html);
+                if(typeof(project.video) !== 'undefined'){
+                    var video = $('#youtube-video').find('iframe');
+                    video.on('load',()=>{
+                        video.addClass('expanded');
+                    });
+                }
+                $('#project-information').addClass('expanded');
+            }
+        });
+
+        element.css('opacity', '1');
+        element.css('transform', 'translateY(0)');
+        element.css('z-index', '1');
+    }
+
     function generateWorkshops(){
         var correlative = 0;
         var element = $('#dynamic-information');
@@ -117,16 +202,16 @@
         });
         html += `<span id="workshop-information" class="workshop-information">`;
         html += '<p>';
-        html += 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
         html += '</p>';
         html += '</span>';
         html += '</span>';
         element.find('.section-body').html(html);
 
         $('.workshop-card').click((event)=>{
-            var element = event.currentTarget;
+            element = event.currentTarget;
             if($(element).hasClass('expanded')){
                 $(element).removeClass('expanded');
+                $('#background').removeClass('unfocused');
                 $('.workshop-card').each((index, workshop)=>{
                     if(workshop.id != element.id){
                         var actualWorkshop = $('#' + workshop.id);
@@ -140,6 +225,7 @@
                 $('#workshop-information').removeClass('expanded');
             }else{
                 $(element).addClass('expanded');
+                $('#background').addClass('unfocused');
                 $('.workshop-card').each((index, workshop)=>{
                     if(workshop.id != element.id){
                         var actualWorkshop = $('#' + workshop.id);
@@ -240,7 +326,7 @@
         $('#galileo-logo').css('bottom', '-118px');
         $('#title-container').css('opacity', '0');
         $('#title-container').css('transform', 'translateY(20px)');
-        $('#background').css('filter', 'blur(20px) brightness(0.7) grayscale(55%)');
+        $('#background').css('filter', 'blur(20px) brightness(0.7)');
         $('#back-container').find('.btn-back').css('transform', 'translateX(0)');
         $('body').css('overflow-y', 'auto');
         $('#title-container').css('z-index', '-1');
@@ -258,7 +344,7 @@
         var element = $('#title-container');
         element.css('opacity', '1');
         element.css('transform', 'translateY(0)');
-        $('#background').css('filter', 'blur(9px) brightness(0.7) grayscale(0)');
+        $('#background').css('filter', 'blur(9px) brightness(0.7)');
         $('#back-container').find('.btn-back').css('transform', 'translateX(-85px)');
         element = $('#dynamic-information');
         element.css('opacity', '0');
@@ -266,7 +352,10 @@
         element.css('z-index', 0);
         $('body').css('overflow-y', 'hidden');
         $('#title-container').css('z-index', '1');
-        element.find('.section-body').html('');
+        $('#background').removeClass('unfocused');
+        setTimeout(()=>{
+            element.find('.section-body').html('');
+        },400);
     }
 
     $(document).ready(()=>{
@@ -285,7 +374,7 @@
                     generateStaff();
                 }break;
                 case 'projects-access':{
-                    console.log('hola');
+                    generateProjects();
                 }break;
                 case 'presentations-access':{
                     console.log('hola');

@@ -1,0 +1,23 @@
+.youtube-video{
+    z-index: 1;
+    position:relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: 0.4s ease;
+        &.expanded{
+            opacity: 1;
+        }
+    }
+}
+
+/* <span class="youtube-video">
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/-i4bVY8lEWE" frameborder="0" allowfullscreen=""></iframe>
+    </span> */
