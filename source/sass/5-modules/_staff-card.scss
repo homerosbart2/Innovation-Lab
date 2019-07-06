@@ -27,6 +27,21 @@
                 }
             }
         }
+        &.graphic-designer{
+            .staff-image{
+                &:hover,
+                &:active,
+                &:focus{
+                    border: 6px solid $graphic-designer-color;
+                    & + .staff-name + .staff-information{
+                        border-bottom: 6px solid $graphic-designer-color;
+                    }
+                }
+                .staff-job{
+                    color: $graphic-designer-color;
+                }
+            }
+        }
         &.projects-leader{
             .staff-image{
                 &:hover,

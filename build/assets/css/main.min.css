@@ -1,5 +1,5 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize * */
-@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -469,8 +469,9 @@ img::selection {
 img::-moz-selection {
   background: transparent; }
 
+/* @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed'); */
 html {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Montserrat', sans-serif; }
 
 .form-title {
   font-size: 18px; }
@@ -720,6 +721,12 @@ nav {
         border-bottom: 6px solid #3c8efa; }
     .staff-container .staff-card.boss .staff-image .staff-job {
       color: #3c8efa; }
+    .staff-container .staff-card.graphic-designer .staff-image:hover, .staff-container .staff-card.graphic-designer .staff-image:active, .staff-container .staff-card.graphic-designer .staff-image:focus {
+      border: 6px solid #ff00de; }
+      .staff-container .staff-card.graphic-designer .staff-image:hover + .staff-name + .staff-information, .staff-container .staff-card.graphic-designer .staff-image:active + .staff-name + .staff-information, .staff-container .staff-card.graphic-designer .staff-image:focus + .staff-name + .staff-information {
+        border-bottom: 6px solid #ff00de; }
+    .staff-container .staff-card.graphic-designer .staff-image .staff-job {
+      color: #ff00de; }
     .staff-container .staff-card.projects-leader .staff-image:hover, .staff-container .staff-card.projects-leader .staff-image:active, .staff-container .staff-card.projects-leader .staff-image:focus {
       border: 6px solid #ff5555; }
       .staff-container .staff-card.projects-leader .staff-image:hover + .staff-name + .staff-information, .staff-container .staff-card.projects-leader .staff-image:active + .staff-name + .staff-information, .staff-container .staff-card.projects-leader .staff-image:focus + .staff-name + .staff-information {
@@ -1127,6 +1134,10 @@ body {
     width: 200px;
     height: 78px;
     filter: grayscale(100%); }
+    @media only screen and (max-width: 500px) {
+      .galileo-logo img {
+        width: 133.3px;
+        height: 52px; } }
 
 .copyright {
   position: fixed;
@@ -1160,7 +1171,7 @@ body {
       color: black; }
 
 .dynamic-information {
-  padding: 50px 50px 50px 50px;
+  padding: 15px 15px 70px 15px;
   position: relative;
   color: white;
   display: flex;
@@ -1178,7 +1189,7 @@ body {
     padding-right: 24px;
     font-size: 34px;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
     width: 100%;
     justify-content: flex-start; }
     @media only screen and (max-width: 650px) {
@@ -1238,10 +1249,9 @@ body {
       height: auto;
       padding: 50px 50px;
       justify-content: center;
-      margin-top: -30px; }
+      margin-top: -50px; }
       .title-container .inner-container .title-container:hover .title, .title-container .inner-container .title-container:active .title, .title-container .inner-container .title-container:focus .title {
-        border-bottom: 7px solid white;
-        transform: translateY(-30px); }
+        transform: translateY(-10px); }
       .title-container .inner-container .title-container:hover .title-menu, .title-container .inner-container .title-container:active .title-menu, .title-container .inner-container .title-container:focus .title-menu {
         opacity: 1;
         transform: translateY(0);
@@ -1252,43 +1262,37 @@ body {
         -o-user-select: none; }
       @media only screen and (max-width: 500px) {
         .title-container .inner-container .title-container:hover .title, .title-container .inner-container .title-container:active .title, .title-container .inner-container .title-container:focus .title {
-          border-bottom: 7px solid white;
-          transform: translateY(-20px); } }
+          transform: translateY(-10px); } }
       .title-container .inner-container .title-container .title {
-        display: flex;
-        height: 110px;
+        transform: translateY(10px);
         color: white;
         text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
         font-size: 68px;
-        border-bottom: 0 solid transparent;
         transition: 0.2s ease;
         font-weight: bold; }
-        @media only screen and (max-width: 900px) {
+        .title-container .inner-container .title-container .title .innovation-logo {
+          width: 700px;
+          height: auto;
+          opacity: 0;
+          transition: 0.3s ease; }
+          @media only screen and (max-width: 750px) {
+            .title-container .inner-container .title-container .title .innovation-logo {
+              width: 400px; } }
+          @media only screen and (max-width: 650px) {
+            .title-container .inner-container .title-container .title .innovation-logo {
+              width: 300px; } }
+          @media only screen and (max-width: 380px) {
+            .title-container .inner-container .title-container .title .innovation-logo {
+              width: 200px; } }
+        @media only screen and (orientation: portrait) {
           .title-container .inner-container .title-container .title {
-            font-size: 58px;
-            height: 100px; } }
-        @media only screen and (max-width: 750px) {
-          .title-container .inner-container .title-container .title {
-            font-size: 48px;
-            height: 90px; } }
-        @media only screen and (max-width: 650px) {
-          .title-container .inner-container .title-container .title {
-            font-size: 38px;
-            height: 70px; } }
-        @media only screen and (max-width: 500px) {
-          .title-container .inner-container .title-container .title {
-            font-size: 28px;
-            height: 50px; } }
-        @media only screen and (max-width: 380px) {
-          .title-container .inner-container .title-container .title {
-            font-size: 22px;
-            height: 50px; } }
+            transform: translateY(-10px); } }
       .title-container .inner-container .title-container .title-menu {
         display: flex;
         justify-content: space-between;
         transition: transform 0.2s ease, opacity 0.2s ease;
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(-40px);
         user-select: none;
         -moz-user-select: none;
         -khtml-user-select: none;
@@ -1297,12 +1301,16 @@ body {
         width: 658px;
         flex-wrap: wrap;
         max-width: 100%; }
+        @media only screen and (orientation: portrait) {
+          .title-container .inner-container .title-container .title-menu {
+            opacity: 1 !important;
+            transform: translateY(0) !important; } }
         @media only screen and (max-width: 750px) {
           .title-container .inner-container .title-container .title-menu {
             width: 580px; } }
         @media only screen and (max-width: 650px) {
           .title-container .inner-container .title-container .title-menu {
-            width: 470px; } }
+            width: 400px; } }
         @media only screen and (max-width: 500px) {
           .title-container .inner-container .title-container .title-menu {
             width: 280px; } }
@@ -1313,7 +1321,8 @@ body {
           padding: 10px 15px;
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
           font-size: 15px;
-          margin: 5px 0; }
+          margin: 5px 0;
+          font-weight: bold; }
           @media only screen and (max-width: 650px) {
             .title-container .inner-container .title-container .title-menu .btn-menu {
               font-size: 12px; } }

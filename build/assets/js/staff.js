@@ -28,6 +28,13 @@ var staff = [
         email : 'ascardenas@galileo.edu'
     },
     {
+        name: 'Holly Milián',
+        information: 'Graphic Designer, Illustrator and Amateur Photographer ★ Love cartoons and draw silly things ★',
+        image: 'holly.jpeg',
+        job: 'graphic-designer',
+        email: 'ikuzuhunter@gmail.com'
+    },
+    {
         name : 'Henry Campos',
         information : 'Systems engineer, web developer/designer, AI interested and math lover.',
         image : 'henry.png',

@@ -8,3 +8,15 @@
         @content;
     }
 }
+
+@mixin media-min($width) {
+  @media only screen and (min-width: $width) {
+      @content;
+  }
+}
+
+@mixin media-orientation($orientation) {
+  @media only screen and (orientation: $orientation) {
+      @content;
+  }
+}

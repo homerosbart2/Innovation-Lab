@@ -57,6 +57,10 @@ body {
         width: 200px;
         height: 78px;
         filter: grayscale(100%);
+        @include media-max(500px) {
+            width: 133.3px;
+            height: 52px;
+        }
     }
 }
 
@@ -98,7 +102,7 @@ body {
 }
 
 .dynamic-information {
-    padding: 50px 50px 50px 50px;
+    padding: 15px 15px 70px 15px;
     position: relative;
     color: white;
     display: flex;
@@ -116,7 +120,7 @@ body {
         padding-right: 24px;
         font-size: 34px;
         font-weight: bold;
-        text-transform: uppercase;
+        text-transform: capitalize;
         width: 100%;
         justify-content: flex-start;
         @include media-max(650px) {
@@ -181,13 +185,13 @@ body {
             height: auto;
             padding: 50px 50px;
             justify-content: center;
-            margin-top: -30px;
+            margin-top: -50px;
             &:hover,
             &:active,
             &:focus {
                 .title {
-                    border-bottom: 7px solid white;
-                    transform: translateY(-30px);
+                    //border-bottom: 7px solid white;
+                    transform: translateY(-10px);
                 }
                 .title-menu {
                     opacity: 1;
@@ -200,47 +204,49 @@ body {
                 }
                 @include media-max(500px) {
                     .title {
-                        border-bottom: 7px solid white;
-                        transform: translateY(-20px);
+                        //border-bottom: 7px solid white;
+                        transform: translateY(-10px);
                     }
                 }
             }
             .title {
-                display: flex;
-                height: 110px;
+                .innovation-logo{
+                    width: 700px;
+                    height: auto;
+                    opacity: 0;
+                    transition: 0.3s ease;
+                    @include media-max(750px) {
+                        width: 400px;
+                    }
+                    @include media-max(650px) {
+                        width: 300px;
+                    }
+                    @include media-max(380px) {
+                        width: 200px;
+                    }
+                }
+                transform: translateY(10px);
+                @include media-orientation(portrait){
+                    transform: translateY(-10px);
+                }
+                //display: flex;
                 color: white;
                 text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
                 font-size: 68px;
-                border-bottom: 0 solid transparent;
+                //border-bottom: 0 solid transparent;
                 transition: 0.2s ease; //text-transform: uppercase;
                 font-weight: bold;
-                @include media-max(900px) {
-                    font-size: 58px;
-                    height: 100px;
-                }
-                @include media-max(750px) {
-                    font-size: 48px;
-                    height: 90px;
-                }
-                @include media-max(650px) {
-                    font-size: 38px;
-                    height: 70px;
-                }
-                @include media-max(500px) {
-                    font-size: 28px;
-                    height: 50px;
-                }
-                @include media-max(380px) {
-                    font-size: 22px;
-                    height: 50px;
-                }
             }
             .title-menu {
                 display: flex;
                 justify-content: space-between;
                 transition: transform 0.2s ease, opacity 0.2s ease;
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-40px);
+                @include media-orientation(portrait){
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                }
                 user-select: none;
                 -moz-user-select: none;
                 -khtml-user-select: none;
@@ -253,7 +259,7 @@ body {
                     width: 580px;
                 }
                 @include media-max(650px) {
-                    width: 470px;
+                    width: 400px;
                 }
                 @include media-max(500px) {
                     width: 280px;
@@ -266,6 +272,7 @@ body {
                     box-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
                     font-size: 15px;
                     margin: 5px 0;
+                    font-weight: bold;
                     @include media-max(650px) {
                         font-size: 12px;
                     }
