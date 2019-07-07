@@ -52,7 +52,7 @@
                     <a id="home-access" class="btn-menu">Home</a>
                     <a id="staff-access" class="btn-menu">Staff</a>
                     <a id="projects-access" class="btn-menu">Projects</a>
-                    <a id="presentations-access" class="btn-menu">Presentations</a>
+                    <a id="presentations-access" class="btn-menu">Events</a>
                     <a id="workshops-access" class="btn-menu">Workshops</a>
                 </span>
             </span>
@@ -65,6 +65,16 @@
         <span class="section-body">
             
         </span>
+    </span>
+    <span id="dynamic-expanded-information" class="dynamic-expanded-information">
+        <span class="section-body">
+            
+        </span>
+        <!-- <span class="exit">
+            <a id="exit-btn" class="exit-btn">
+                <i class="fas fa-times"></i> Exit
+            </a>
+        </span> -->
     </span>
     <span id="copyright" class="copyright">© 2019 Laboratorio de Innovacion.</span>
     <span id="galileo-logo" class="galileo-logo">
@@ -80,6 +90,8 @@
 
 <script>
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Agu', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var inExpanded = false;
+    var orderStaff = new Array();
 
     function generateHome(){
         var element = $('#dynamic-information');
@@ -303,17 +315,86 @@
         element.css('z-index', '1');
     }
 
+    function generateExpandedStaff(name){
+        inExpanded = true;
+
+        // console.log(name);
+
+        var findedStaff;
+        staff.forEach((staffMember)=>{
+            if(staffMember.name == name){
+                findedStaff = staffMember;
+            }
+        });
+
+        var element = $('#dynamic-expanded-information');
+        var html = '';
+
+        html += '<span class="staff-expanded-card">';
+        html += '<span class="staff-image">';
+        html += `<img class="img" src="assets/img/${findedStaff.image}">`;
+
+        html += '</span>';
+
+        html += '<span class="staff-name">';
+        html += name;
+        html += '</span>';
+        html += `<span class="staff-company">${findedStaff.job}</span>`;
+        html += `<span class="staff-information">${findedStaff.information}</span>`;
+
+        html += '</span>';
+
+        html += '</span>';
+
+        element.find('.section-body').html(html);
+
+        setTimeout(()=>{
+            $('#dynamic-information').css('opacity', '0');
+        }, 0);
+        $('#dynamic-expanded-information').css('width', '100vw');
+        $('#dynamic-expanded-information').css('height', '100vh');
+        $('#dynamic-expanded-information').css('opacity', '1');
+    }
+
+    function hideExpanded(){
+        inExpanded = false;
+        $('#dynamic-information').css('opacity', '1');
+        setTimeout(()=>{
+            $('#dynamic-expanded-information').find('.section-body').html('');
+            $('#dynamic-expanded-information').css('height', 'auto');
+        }, 300);
+        $('#dynamic-expanded-information').css('opacity', '0');
+        
+    }
+
+    function getSecondName(name){
+        return name.split(" ")[1];
+    }
+
     function generateStaff(){
         var element = $('#dynamic-information');
         element.find('.section-title').html('STAFF');
         var html = '';
         html += '<span class="staff-container">';
-        staff.forEach(element => {
+        // html += '<p class="helper">Para ver más información sobre el staff presiona sobre su imagen.</p>'
+        orderStaff.forEach(element => {
             html += `<span class="staff-card ${element.job}">`;
             html += '<span class="staff-image">';
-            html += `<img src="assets/img/${element.image}">`;
+            html += (element.gif == null)? `<img class="img" img-path="assets/img/${element.image}" src="">` : `<img class="img" img-path="${element.gif}" src="">`;
+            html += '<span class="staff-see-more">';
+            html += 'See more'
+            html += '</span>';
+            html += '</span>';
+            html += '<span class="staff-name-container">'
+            html += `<span class="staff-emoji">`;
+            html += element.emoji;
+            html += '</span>';
+            html += `<span class="staff-name">`;
+            html += element.name;
+            html += '</span>';
+            html += '</span>';
             html += '<span class="staff-job">';
-            switch(element.job){
+                switch(element.job){
                 case 'boss':{
                     html += 'Team\'s Leader';
                 }break;
@@ -334,10 +415,6 @@
                 }break;
             }
             html += '</span>';
-            html += '</span>';
-            html += '<span class="staff-name">';
-            html += element.name;
-            html += '</span>';
             html += '<span class="staff-information">';
             html += '<p>';
             html += element.information;
@@ -348,9 +425,28 @@
         html += '</span>';
         element.find('.section-body').html(html);
 
+        element.find('.section-body').find('.staff-container').find('.staff-card').each((index, element) => {
+            var actualImg = $(element).find('.staff-image');
+
+            if(actualImg.find('.img')[0] != undefined) actualImg.find('.img')[0].onload = () => {
+                actualImg.css('opacity', '1');
+                actualImg.css('transform', 'scale(1)');
+            }
+
+            actualImg.find('.img').attr('src', actualImg.find('.img').attr('img-path'));
+        });
+
         element.css('opacity', '1');
         element.css('transform', 'translateY(0)');
         element.css('z-index', '1');
+
+        $('.staff-image').click((event)=>{
+            element = $(event.currentTarget);
+            var image_path = element.find('.img').attr('src');
+            var name = element.parent().find('.staff-name').text();
+            var gde = element.find('.gde-banner');
+            generateExpandedStaff(name);
+        });
     }
 
     function hideIndex(){
@@ -358,7 +454,7 @@
         $('#galileo-logo').css('bottom', '-118px');
         $('#title-container').css('opacity', '0');
         $('#title-container').css('transform', 'translateY(20px)');
-        $('#background').css('filter', 'blur(20px) brightness(0.7)');
+        // $('#background').css('filter', 'brightness(0.3) blur(6px)');
         $('#back-container').find('.btn-back').css('transform', 'translateX(0)');
         $('body').css('overflow-y', 'auto');
         $('#title-container').css('z-index', '-1');
@@ -376,7 +472,7 @@
         var element = $('#title-container');
         element.css('opacity', '1');
         element.css('transform', 'translateY(0)');
-        $('#background').css('filter', 'blur(9px) brightness(0.7)');
+        // $('#background').css('filter', 'brightness(0.3) blur(6px)');
         $('#back-container').find('.btn-back').css('transform', 'translateX(-85px)');
         element = $('#dynamic-information');
         element.css('opacity', '0');
@@ -401,6 +497,27 @@
     $(document).ready(()=>{
         $('.background').css('opacity', '1');
         $('.background').css('transform', 'scale(1.2)');
+
+        var inserted = false;
+        staff.forEach((element, index) => {
+            inserted = false;
+            if(orderStaff.length == 0){
+                orderStaff.unshift(element);
+            }else{
+                orderStaff.forEach((actualElement, actualIndex) => {
+                    if(!inserted){
+                        var comp = getSecondName(element.name).localeCompare(getSecondName(actualElement.name), 'en', {sensitivity: 'base'});
+                        if(comp > 0){
+                            orderStaff.splice(actualIndex, 0, element);
+                            inserted = true;
+                        }
+                    }
+                });
+                if(!inserted){
+                    orderStaff.push(element);
+                }
+            }
+        });
 
         console.log();
         $('#innovation-logo')[0].onload = ()=>{
@@ -437,7 +554,8 @@
         });
 
         $('#back').click(()=>{
-            showIndex();
+            if(inExpanded) hideExpanded();
+            else showIndex();
         });
     });
 </script>

@@ -6,13 +6,13 @@
     background-image: url("../img/bg2.jpg");
     background-size: cover;
     z-index: 0;
-    filter: blur(9px) brightness(0.7);
+    filter: brightness(0.3) blur(6px);
     transform: scale(1);
     opacity: 0;
     transition: 1.5s ease;
     &.unfocused{
         transition: 0.4s ease;
-        filter: blur(40px) brightness(0.7) !important;
+        // filter: blur(40px) brightness(0.7) !important;
     }
 }
 
@@ -86,7 +86,7 @@ body {
     position: fixed;
     bottom: 40px;
     display: flex; //width: 100%;
-    z-index: 1; //background: pink;
+    z-index: 2; //background: pink;
     left: 0;
     .btn-back {
         margin-left: 40px; //margin-right: 40px;
@@ -99,6 +99,11 @@ body {
             color: black;
         }
     }
+}
+
+.dynamic-expanded-information {
+    position: fixed;
+    z-index: 2;
 }
 
 .dynamic-information {
@@ -116,8 +121,8 @@ body {
     align-items: center;
     .section-title {
         display: flex;
-        padding-left: 24px;
-        padding-right: 24px;
+        // padding-left: 24px;
+        // padding-right: 24px;
         font-size: 34px;
         font-weight: bold;
         text-transform: capitalize;
@@ -132,8 +137,8 @@ body {
     }
     .section-body {
         display: flex;
-        padding-left: 24px;
-        padding-right: 24px;
+        // padding-left: 24px;
+        // padding-right: 24px;
         flex-direction: column;
         width: 100%;
         .subtitle {
@@ -150,7 +155,7 @@ body {
         p {
             padding: 15px 15px;
             text-align: justify;
-            background: black;
+            background: transparent;
             color: white;
             margin: 5px 0;
             @include media-max(650px) {
